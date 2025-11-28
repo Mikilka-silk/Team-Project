@@ -1,0 +1,13 @@
+header {
+  display: flex; /* розташовує елементи в ряд */
+  align-items: center; /* вирівнює по вертикалі */
+  padding: 0px;
+}
+.logo {
+  width: 100px;
+}
+.site-name {
+  margin-left: 15px; /* відступ від логотипа */
+  font-size: 1.5em;
+  font-weight: bold;
+}
