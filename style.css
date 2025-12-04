@@ -1,184 +1,230 @@
+/* ====== Базові стилі для сторінки ====== */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #181717;
-  color: #fff;
+  margin: 0; /* прибирає стандартні відступи браузера */
+  font-family: Arial, sans-serif; /* шрифт для всього сайту */
+  background-color: #181717; /* темний фон */
+  color: #fff; /* білий текст */
 }
 
-/*   верхня шапка  */
+/* ====== Верхня шапка (header) ====== */
 header {
-  padding-right: 20px;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-right: 20px; /* відступ справа */
+  background-color: #ffffff; /* білий фон шапки */
+  display: flex; /* робимо flex-контейнер */
+  align-items: center; /* вирівнюємо елементи по вертикалі */
+  justify-content: space-between; /* логотип зліва, меню справа */
 }
 
+/* ====== Логотип та назва сайту ====== */
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; /* логотип і назва в ряд */
+  align-items: center; /* вирівнювання по вертикалі */
+  gap: 10px; /* відстань між логотипом і назвою */
 }
 
 .logo {
-  width: 100px;
-  border: none;
-  background: none;
+  width: 100px; /* ширина логотипа */
+  border: none; /* без рамки */
+  background: none; /* прозорий фон */
 }
 
 .site-name {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #000;
+  font-size: 1.5em; /* розмір тексту */
+  font-weight: bold; /* жирний шрифт */
+  color: #000; /* чорний колір */
 }
 
+/* ====== Навігація ====== */
 nav {
-  display: flex;
-  gap: 20px;
+  display: flex; /* меню в ряд */
+  gap: 20px; /* відстань між пунктами */
 }
 
 nav a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #000;
+  text-decoration: none; /* прибирає підкреслення */
+  font-weight: bold; /* жирний текст */
+  color: #000; /* чорний колір */
 }
 
 nav a:hover {
-  color: #8b6c20;
+  color: #8b6c20; /* золотистий при наведенні */
 }
 
-/*  нмз  чорний */
+/* ====== Hero-секція ====== */
 .hero {
-  display: flex;
-
-  min-height: 100vh;
-  border-radius: 20px;
+  display: flex; /* ліва і права частини поруч */
+  min-height: 100vh; /* займає всю висоту екрану */
+  border-radius: 20px; /* закруглені кути */
 }
 
 .hero-left {
-  flex: 1;
-  padding: 40px;
+  flex: 1; /* займає половину ширини */
+  padding: 40px; /* внутрішні відступи */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column; /* елементи вертикально */
+  justify-content: center; /* вирівнювання по центру */
 }
 
 .hero-left h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  font-size: 2.5em; /* великий заголовок */
+  margin-bottom: 20px; /* відступ знизу */
+  text-transform: uppercase; /* всі букви великі */
 }
 
 .hero-left p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  font-size: 1.2em; /* розмір тексту */
+  line-height: 1.6; /* висота рядка для читабельності */
+  margin-bottom: 30px; /* відступ знизу */
 }
 
+/* ====== Кнопка "Замовити зараз" ====== */
 .cta a {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #fff;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
+  display: inline-block; /* робимо як кнопку */
+  padding: 12px 24px; /* внутрішні відступи */
+  background-color: #fff; /* білий фон */
+  color: #000; /* чорний текст */
+  text-decoration: none; /* без підкреслення */
+  font-weight: bold; /* жирний текст */
+  border-radius: 6px; /* закруглені кути */
 }
 
 .cta a:hover {
-  background-color: #ddd;
+  background-color: #ddd; /* сірий при наведенні */
 }
 
+/* ====== Права частина Hero ====== */
 .hero-right {
-  flex: 1;
+  flex: 1; /* займає половину ширини */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* вирівнювання по вертикалі */
+  justify-content: center; /* вирівнювання по горизонталі */
 }
 
 .hero-right img {
-  width: 100%;
-  max-width: 700px; /* картинка */
-  height: auto;
-  border-radius: 8px;
-}
-.nav {
-  text-align: right; /* весь текст у контейнері вправо */
-}
-.link {
-  padding: 10px 16px;
-  background: #999;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
+  width: 100%; /* адаптивна ширина */
+  max-width: 700px; /* не більше 700px */
+  height: auto; /* автоматична висота */
+  border-radius: 8px; /* закруглені кути */
 }
 
+/* ====== Додаткові стилі ====== */
+.nav {
+  text-align: right; /* текст вправо */
+}
+
+.link {
+  padding: 10px 16px; /* внутрішні відступи */
+  background: #999; /* сірий фон */
+  color: #fff; /* білий текст */
+  text-decoration: none; /* без підкреслення */
+  border-radius: 6px; /* закруглені кути */
+}
+
+/* ====== Кнопка "наверх" ====== */
 #scrollTopBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 75px;
-  height: 75px;
-  border: none;
-  border-radius: 100%;
-  font-size: 20px;
-  cursor: pointer;
-  display: none; /* ❌ спочатку взагалі не видно */
-  z-index: 1000;
-  transition: opacity 0.4s ease;
+  position: fixed; /* завжди внизу справа */
+  bottom: 20px; /* відступ від низу */
+  right: 20px; /* відступ від правого краю */
+  width: 75px; /* ширина кнопки */
+  height: 75px; /* висота кнопки */
+  border: none; /* без рамки */
+  border-radius: 100%; /* кругла форма */
+  font-size: 20px; /* розмір стрілки */
+  cursor: pointer; /* курсор при наведенні */
+  display: none; /* ❌ спочатку прихована */
+  z-index: 1000; /* поверх контенту */
+  transition: opacity 0.4s ease; /* плавна поява */
 }
 
 #scrollTopBtn.show {
-  display: block; /* ✅ з’являється */
-  opacity: 1;
+  display: block; /* ✅ показується при скролі */
+  opacity: 1; /* робимо видимою */
 }
 
+/* ====== Footer ====== */
+footer {
+  background-color: #111; /* темний фон футера */
+  padding: 30px 20px; /* внутрішні відступи */
+  text-align: center; /* вирівнювання по центру */
+  color: #fff; /* білий текст */
+}
 
-/* responsive */
+footer h2 {
+  margin-bottom: 15px; /* відступ під заголовком */
+  font-size: 1.5em; /* розмір заголовка */
+  color: #fff; /* білий колір */
+}
+
+.social-links {
+  display: flex; /* іконки в ряд */
+  justify-content: center; /* вирівнювання по центру */
+  gap: 25px; /* відстань між іконками */
+  flex-wrap: wrap; /* перенос на новий ряд при вузькому екрані */
+}
+
+.social-links a img {
+  width: 50px; /* розмір іконок */
+  height: auto;
+  border-radius: 8px; /* легке заокруглення */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ефекти при наведенні */
+}
+
+.social-links a img:hover {
+  transform: scale(1.15); /* збільшення при наведенні */
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* світіння */
+}
+
+/* ====== Адаптивність (Responsive) ====== */
 @media (max-width: 1100px) {
   .hero-right {
-    flex-basis: 420px;
+    flex-basis: 420px; /* ширина картинки */
     width: 420px;
   }
   .image-card {
-    border-radius: 36px;
+    border-radius: 36px; /* більше заокруглення */
   }
   h1 {
-    font-size: 40px;
+    font-size: 40px; /* менший заголовок */
   }
 }
+
 @media (max-width: 900px) {
   header {
-    padding: 18px;
+    padding: 18px; /* компактніший header */
   }
   .hero-wrap {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* секція вертикально */
+    gap: 20px; /* відстань між блоками */
     padding: 20px;
   }
   .hero-right {
-    width: 100%;
+    width: 100%; /* картинка на всю ширину */
     flex: 0 0 auto;
   }
   .hero-left {
-    padding: 6px;
+    padding: 6px; /* менші відступи */
   }
   h1 {
-    font-size: 34px;
+    font-size: 34px; /* ще менший заголовок */
   }
 }
-@media (max-width: 520px) {
-  h1 {
-    font-size: 28px;
+
+/* ====== Адаптивність футера для телефонів ====== */
+@media (max-width: 600px) {
+  footer {
+    padding: 20px 10px; /* менші відступи */
   }
-  .order-btn {
-    padding: 12px 16px;
+
+  footer h2 {
+    font-size: 1.2em; /* менший заголовок */
   }
-  nav {
-    display: none;
+
+  .social-links {
+    gap: 15px; /* менші відстані між іконками */
   }
-  header {
-    justify-content: space-between;
+
+  .social-links a img {
+    width: 40px; /* менші іконки */
   }
 }
 
