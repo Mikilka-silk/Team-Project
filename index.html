@@ -1,70 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Code&Lock</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="images/logo.png" alt="Логотип Code&Lock" class="logo" />
+        <div class="site-name">Code&Lock</div>
+      </div>
+      <nav>
+        <a href="main.html">Купити</a>
+        <a href="hp.html">Консультація</a>
+        <a href="index.html">Головна</a>
+      </nav>
+    </header>
 
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Coiny&display=swap"
-        rel="stylesheet"
-      />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@200..800&display=swap"
-        rel="stylesheet"
-      />
-
-      <link href="style.css" rel="stylesheet" />
-      <title>Code&Lock</title>
-    </head>
-    <body>
-      <!-- Логотип + назва -->
-      <header class="header">
-        <img src="logo.png" alt="Логотип Code&Lock" class="logo" />
-        <div class="site-name">
-          <span>Code&Lock</span>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Code&Lock — сучасний метод доступу до номера</h1>
+        <p>
+          Наш замок працює з різними типами дверей, простий у використанні та
+          робить доступ по-справжньому комфортним. Ви обираєте свободу — ми
+          забезпечуємо надійність.
+        </p>
+        <div class="cta">
+          <a href="main.html">Замовити зараз</a>
         </div>
+      </div>
+      <div class="hero-right">
+        <img src="images/promo.jpg" alt="Смартфон біля замка" />
+      </div>
+    </section>
+    <!-- Кнопка наверх -->
+    <button id="scrollTopBtn">⬆️</button>
 
-        <nav aria-label="Основна навігація" class="nav">
-          <a href="#">ГОЛОВНА</a>
-          <a href="#">КОНСУЛЬТАЦІЯ</a>
-          <a class="btn-buy" href="#">КУПИТИ</a>
-        </nav>
-      </header>
+    <script src="script.js"></script>
 
-      <main>
-        <section class="wrap">
-          <div class="hero-left">
-            <h1>
-              Smart Lock — Сучасний метод доступу до готельних номерів без
-              перешкод.
-            </h1>
-
-            <p class="lead">
-              Загубили ключкарту, ключі? Тепер це не проблема, адже з нашим
-              замком ви зможете відчиняти двері за допомогою телефону.
-            </p>
-
-            <div >
-              <a href="#" class="order-btn">Замовити</a>
-            </div>
-          </div>
-
-          <div class="hero-right">
-            <div class="image-card" role="img" aria-label="Укриття">
-              <!-- Постав сюди своє фото: /images/hero.jpg -->
-              <img src="images/hero.jpg" alt="Модель переносного укриття" />
-            </div>
-          </div>
-        </section>
-
+    <main>
+      <section class="features">
+        <h2>Переваги Code&Lock</h2>
+        <div class="feature">
+          <img src="images/feature1.png" alt="Зображення функції 1" />
+          <h3>Зручність використання</h3>
+          <p>
+            Відкривайте двері за допомогою смартфона або коду, без ключів та
+            зайвих турбот.
+          </p>
         </div>
-      </main>
-    </body>
-  </html>
+        <div class="feature">
+          <img src="images/feature2.png" alt="Зображення функції 2" />
+          <h3>Високий рівень безпеки</h3>
+          <p>
+            Сучасні технології шифрування забезпечують надійний захист від
+            несанкціонованого доступу.
+          </p>
+        </div>
+        <div class="feature">
+          <img src="images/feature3.png" alt="Зображення функції 3" />
+          <h3>Легкий монтаж</h3>
+          <p>
+            Простий процес встановлення на будь-які двері без необхідності
+            складних інструментів.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
