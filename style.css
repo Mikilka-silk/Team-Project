@@ -1,148 +1,138 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
 body {
-  font-family: "Sono", sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #181717;
+  color: #fff;
 }
-.header {
-  margin-bottom: 40px;
+
+/*   верхня шапка  */
+header {
+  padding-right: 20px;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.logo {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-.site-name {
-  margin-left: 15px;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-.btn-buy {
-  background: var(--black);
-  padding: 10px 16px;
-  border-radius: 10px;
-  border-color: azure;
-  font-weight: 700;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.164);
-}
-.nav a {
-  text-decoration: none;
-  color: var(--black);
-  padding: 6px 30px;
-}
-.nav {
+
+.brand {
   display: flex;
   align-items: center;
-  gap: 28px;
-  font-weight: 600;
-}
-.nav .btn-buy {
-  background-color: black; /* чорний фон */
-  color: white; /* білий текст */
-  padding: 10px 20px; /* внутрішні відступи */
-  border-radius: 5px; /* закруглені кути */
-  text-decoration: none; /* прибирає підкреслення */
-  font-weight: bold; /* жирний текст */
-  transition: 0.3s; /* плавний ефект при наведенні */
+  gap: 10px;
 }
 
-.nav .btn-buy:hover {
-  background-color: #333; /* трохи світліший чорний при наведенні */
+.logo {
+  width: 100px;
+  border: none;
+  background: none;
 }
-/* Hero area */
-.wrap {
-  max-width: var(--container-width);
-  margin: 18px auto 80px;
-  padding: 28px;
-  border-radius: 30px;
-  background: var(--card);
+
+.site-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+nav {
   display: flex;
-  align-items: center;
-  gap: 28px;
-  overflow: hidden;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+nav a:hover {
+  color: #8b6c20;
+}
+
+/*  нмз  чорний */
+.hero {
+  display: flex;
+
+  min-height: 100vh;
+  border-radius: 20px;
 }
 
 .hero-left {
   flex: 1;
-  padding: 22px 12px;
-  min-width: 320px;
-}
-
-.kicker {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-h1 {
-  margin: 0 0 14px 0;
-  line-height: 1.02;
-  font-size: 46px;
-  font-weight: 800;
-  letter-spacing: -0.6px;
-}
-
-p.lead {
-  color: var(--muted);
-  font-weight: 500;
-  margin: 0 0 20px 0;
-  max-width: 520px;
-  line-height: 1.6;
-}
-
-.order-btn {
-  background: var(--black);
-  color: black;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.accent-shape {
-  width: 90px;
-  height: 28px;
-  border-radius: 40px;
-  background: var(--accent);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05) inset;
-}
-
-/* right image container */
-.hero-right {
-  width: 520px;
-  flex: 0 0 520px;
+  padding: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.hero-left h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-left p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cta a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.cta a:hover {
+  background-color: #ddd;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
   align-items: center;
-  padding: 12px;
+  justify-content: center;
 }
-.image-card {
+
+.hero-right img {
   width: 100%;
-  border-radius: 48px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #fff, #f8f8f8);
-  box-shadow: 0 8px 40px rgba(22, 22, 22, 0.06);
-  border: 6px solid rgba(255, 255, 255, 0.6);
+  max-width: 700px; /* картинка */
+  height: auto;
+  border-radius: 8px;
 }
-.image-card img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 16/10;
+.nav {
+  text-align: right; /* весь текст у контейнері вправо */
 }
+.link {
+  padding: 10px 16px;
+  background: #999;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 75px;
+  height: 75px;
+  border: none;
+  border-radius: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none; /* ❌ спочатку взагалі не видно */
+  z-index: 1000;
+  transition: opacity 0.4s ease;
+}
+
+#scrollTopBtn.show {
+  display: block; /* ✅ з’являється */
+  opacity: 1;
+}
+
 
 /* responsive */
 @media (max-width: 1100px) {
@@ -191,3 +181,4 @@ p.lead {
     justify-content: space-between;
   }
 }
+
