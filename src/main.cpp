@@ -1,53 +1,186 @@
 #include <Arduino.h>
+#include <WiFi.h>
+#include <WebServer.h>
 
-#define LED_PIN 12
-#define BUTTON_PIN 26
+WebServer server(80);
 
-int buttonState;
-int lastButtonState = HIGH;  
-unsigned long lastDebounceTime = 0; 
-unsigned long debounceDelay = 50;
+const char* ssid = "your_ssid";
+const char* password = "your_password";
+
+const int ledPin = 2;
+
+const char* html = R"""(
+  <!DOCTYPE html>
+  <html lang="uk">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Smart Lock Control</title>
+      <style>
+          
+          body {
+              background-color: #1c1c1e; 
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0;
+              color: white;
+          }
+
+          h1 {
+              font-weight: 300;
+              margin-bottom: 10px;
+          }
+
+          
+          .status-container {
+              margin-bottom: 40px;
+              text-align: center;
+          }
+          
+          .status-icon {
+              font-size: 80px;
+              margin-bottom: 10px;
+              transition: all 0.3s ease;
+          }
+
+          .status-text {
+              font-size: 24px;
+              font-weight: bold;
+              letter-spacing: 1px;
+          }
+
+        
+          .btn-container {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              width: 80%;
+              max-width: 300px;
+          }
+
+          button {
+              padding: 20px;
+              font-size: 18px;
+              border: none;
+              border-radius: 16px;
+              cursor: pointer;
+              font-weight: 600;
+              transition: transform 0.1s, opacity 0.2s;
+              box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          }
+
+          button:active {
+              transform: scale(0.96); 
+          }
+
+          .btn-open {
+              background: linear-gradient(135deg, #34c759, #30b350); 
+              color: white;
+          }
+
+          .btn-close {
+              background: linear-gradient(135deg, #ff3b30, #e0332a); 
+              color: white;
+          }
+
+          
+          .locked { color: #ff3b30; }
+          .unlocked { color: #34c759; }
+
+      </style>
+  </head>
+  <body>
+
+      <h1>Smart Lock Control</h1>
+
+      <div class="status-container">
+          <div id="icon" class="status-icon locked">🔒</div>
+          <div id="text" class="status-text">ЗАЧИНЕНО</div>
+      </div>
+
+      <div class="btn-container">
+          <button class="btn-open" onclick="sendCommand('open')">ВІДКРИТИ</button>
+          <button class="btn-close" onclick="sendCommand('close')">ЗАКРИТИ</button>
+      </div>
+
+      <script>
+        
+          
+          function sendCommand(action) {
+              const icon = document.getElementById('icon');
+              const text = document.getElementById('text');
+
+              console.log("Натиснуто кнопку: " + action);
+
+              
+              if (action === 'open') {
+                  icon.innerText = '🔓';
+                  icon.className = 'status-icon unlocked';
+                  text.innerText = 'ВІДЧИНЕНО';
+                  text.style.color = '#34c759';
+              } else {
+                  icon.innerText = '🔒';
+                  icon.className = 'status-icon locked';
+                  text.innerText = 'ЗАЧИНЕНО';
+                  text.style.color = '#ff3b30';
+              }
+
+              
+              
+              fetch("/" + action)
+              .then(response => {
+                  console.log("Сервер відповів OK");
+              })
+              .catch(error => {
+                  
+                  console.log("Запит відправлено (імітація), сервер поки недоступний.");
+              });
+          }
+      </script>
+
+  </body>
+  </html>
+)""";
 
 
-bool checkButton();
+void handleRoot() {
+  server.send(200, "text/html", html);
+}
 
+void handleOn() {
+  digitalWrite(ledPin, HIGH);
+  server.send(200, "text/plain", "LED ON");
+}
+
+void handleOff() {
+  digitalWrite(ledPin, LOW);
+  server.send(200, "text/plain", "LED OFF");
+}
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT);
-  Serial.begin(115200);
-  Serial.println("System is ready. Press the button");
-}
+  pinMode(ledPin, OUTPUT);
 
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() !=WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+  Serial.println("IP Adress: ");
+  Serial.println(WiFi.localIP());
+
+  server.on("/", handleRoot);
+  server.on("/open", handleOn);
+  server.on("/close", handleOff);
+
+  server.begin();
+}
 
 void loop() {
-  if (checkButton()) {
-    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
-    Serial.println("The button is pressed");
-  }
-}
-
-
-bool checkButton() {
-    int reading = digitalRead(BUTTON_PIN);
-
-  if (reading != lastButtonState) {
-    lastDebounceTime = millis();
-  }
-
-  if ((millis() - lastDebounceTime) > debounceDelay) {
-      
-    if (reading != buttonState) {
-      buttonState = reading;
-
-      if (buttonState == LOW) {
-        lastButtonState = reading;
-        return true;
-      }
-    }
-  }
-
-  lastButtonState = reading;
-
-  return false;
+  server.handleClient();
 }
