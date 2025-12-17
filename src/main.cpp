@@ -6,16 +6,19 @@ void handleRoot() {
 
 void handleOn() {
   digitalWrite(LED_PIN, HIGH);
+  digitalWrite(LOCK_PIN, HIGH);
   server.send(200, "text/plain", "LED ON");
 }
 
 void handleOff() {
   digitalWrite(LED_PIN, LOW);
+  digitalWrite(LOCK_PIN, LOW);
   server.send(200, "text/plain", "LED OFF");
 }
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
+  pinMode(LOCK_PIN, OUTPUT);
 
   Serial.begin(115200);
   WiFi.begin(ssid, password);

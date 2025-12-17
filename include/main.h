@@ -4,6 +4,7 @@
 #include <iostream>
 
 #define LED_PIN 2
+#define LOCK_PIN 15
 
 void handleRoot();
 void handleOn();
